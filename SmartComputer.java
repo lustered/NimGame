@@ -15,17 +15,19 @@ class SmartComputer implements Player
 
     public int move(int marbles)
     {
+        // If the value at half the range is is odd, we can use it.
         if((marbles - (marbles / 2 )) % 2 != 0)
             return marbles / 2;
         else
         {
+            // variable to backtrack-check.
             int min = (marbles / 2) + 1 ;
 
+            // Iterate to get the greatest possible value 
             for ( ; min < marbles ; min++) 
+                // If the end result is odd, return the appropiate amount.
                 if((marbles - (marbles - min)) % 2 != 0)
                     return (marbles - min) ;
-                else
-                    System.out.println("\n\ndidnt work: " +  (marbles -  min));
             
         }
         
