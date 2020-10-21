@@ -22,9 +22,12 @@ public class TestNim
         Player[] players = new Player[size] ;
 
         int playAgain ; 
+        int playCounter = 1;
 
         do
         {
+            System.out.println("\n Game Number: " + playCounter++) ;
+
             // For n player that wants to play.
             for (int i = 0 ; i < size ; i++) 
             {
@@ -51,8 +54,8 @@ public class TestNim
 
             // Ask the user if they want to play again.
             playAgain = JOptionPane.showOptionDialog(null, "Do you want to play again?", 
-                    "Nim Game", JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.WARNING_MESSAGE, null, menu, menu[0]) ;
+                        "Nim Game", JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.WARNING_MESSAGE, null, menu, menu[0]) ;
 
         }while(playAgain == 1) ;
 
