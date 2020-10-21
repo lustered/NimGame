@@ -2,17 +2,22 @@ import java.util.Scanner ;
 
 public class Human implements Player
 {
-    private static String playerName ;
+    private String playerName ;
     private final Scanner sc = new Scanner(System.in);
 
     public Human()
     {
-        Human.playerName = "Human" ;
+        playerName = "Human" ;
     }
 
     public Human(String playerName)
     {
-        Human.playerName = playerName ;
+        this.playerName = playerName ;
+    }
+
+    public void setPlayerName(String playerName) 
+    {
+        this.playerName = playerName;
     }
 
     @Override
@@ -50,6 +55,6 @@ public class Human implements Player
     @Override
     public String getPlayerName()
     {
-        return Human.playerName ;
+        return playerName ;
     }
 }

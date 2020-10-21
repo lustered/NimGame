@@ -1,16 +1,21 @@
 
 class SmartComputer implements Player
 {
-    private static String playerName ;
+    private String playerName ;
 
     public SmartComputer()
     {
-        playerName = "SmartComputer";
+        playerName = "SmartComputer" ;
     }
 
     public SmartComputer(String playerName)
     {
-        SmartComputer.playerName = playerName;
+        this.playerName = playerName ;
+    }
+
+    public void setPlayerName(String playerName)
+    {
+        this.playerName = playerName ;
     }
 
     public int move(int marbles)
@@ -40,6 +45,6 @@ class SmartComputer implements Player
 
     public String getPlayerName()
     {
-        return SmartComputer.playerName;
+        return playerName;
     }
 }

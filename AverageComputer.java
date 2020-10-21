@@ -2,7 +2,7 @@ import java.util.Random ;
 
 class AverageComputer implements Player
 {
-    private static String playerName ;
+    private String playerName ;
     private final Random rnd = new Random() ;
 
     public AverageComputer()
@@ -12,7 +12,7 @@ class AverageComputer implements Player
 
     public AverageComputer(String playerName)
     {
-        AverageComputer.playerName = playerName ;
+        this.playerName = playerName ;
     }
 
     public int move(int marbles)
@@ -20,8 +20,13 @@ class AverageComputer implements Player
        return rnd.nextInt(marbles / 2) + 1 ;
     }
 
+    public void setPlayerName(String playerName)
+    {
+        this.playerName = playerName;
+    }
+
     public String getPlayerName()
     {
-        return AverageComputer.playerName ;
+        return playerName ;
     }
 }
