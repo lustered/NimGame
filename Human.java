@@ -2,9 +2,8 @@ import java.util.Scanner ;
 
 public class Human implements Player
 {
-    // Scanner s = new Scanner(System.in) ;
-
     private static String playerName ;
+    private final Scanner sc = new Scanner(System.in);
 
     public Human()
     {
@@ -19,37 +18,33 @@ public class Human implements Player
     @Override
     public int move(int marbles)
     {
-        // TODO: stupid humans always piss me off
-        // int amount;
-        // do
-        // {
-        //     amount = isValid(marbles);
-        //     if(amount == -1)
-        //         System.out.format("Please enter a valid num within %2s and %2d", 1,marbles - (marbles/2));
-        // }while(amount != -1);
-            
-        int amount = 1;
+        // Iterate forever, broken when a valid input is found.
+        while(true)
+        {
+            System.out.format("\n::Please enter a number in range of 1 and %d\n::Amount: ", marbles / 2);
 
-        System.out.println("\n\nPlease enter a valid range of marbles to remove.");
-        Scanner scan = new Scanner(System.in);
-        while(scan.hasNext()){
-            int tmp = scan.nextInt();
-            if(scan.hasNext()){
-                if(tmp > 0 && tmp < (marbles / 2) + 1){
-                    scan.close();
-                    return tmp;
-                    // break;
-                }
-            }else
+            // Avoid InputMismatchException
+            if(sc.hasNextInt())
             {
-               System.out.println("\nThe value is not correct. Try again please.");
+                // Get the value.
+                int val = sc.nextInt();
+
+                // Check if the value is within range.
+                if(val > 0 && val <= (marbles / 2))
+                    // If it is, return it.
+                    return val;
+                else
+                    // If not, let the user know, a new iteration will repeat.
+                    System.out.println("++Please make sure the amount is correct.\n");
+            }
+            // If the input is not an int.
+            else
+            {
+                // Let the user know they aren't the brightest and move on.
+                System.out.println("++Dumbo, numbers please.");
+                sc.next();
             }
         }
-        scan.close();
-
-        
-
-        return amount ;
     }
 
     @Override
@@ -57,22 +52,4 @@ public class Human implements Player
     {
         return Human.playerName ;
     }
-
-    // private int isValid(int marbles)
-    // {
-    //     System.out.println("Enter the amount of marbles to remove.") ;
-    //     while(s.hasNext())
-    //         if(s.hasNextInt())
-    //         {
-    //             int val = s.nextInt() ;
-    //             if(val > 0 && val < (marbles / 2) + 1)
-    //                 return val ;
-
-    //         }else
-    //              s.hasNext() ;
-
-    //     return -1 ;
-    // }
-        
-
 }
