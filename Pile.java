@@ -36,7 +36,7 @@ public class Pile
 
     public boolean hasMarbles()
     {
-        return marbles > 0 ;
+        return marbles > 1 ;
     }
 
     /*

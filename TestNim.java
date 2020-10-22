@@ -12,22 +12,18 @@ public class TestNim
 
         // Options for JOptionPane.
         Object[] menu = { "No", "Yes" } ;
-        Object[] availablePlayers = { "Human", "Smart Computer", "Dumb Computer" } ;
+        Object[] availablePlayers = { "Human", "Smart Computer", "Dumber Computer" } ;
         
         // Constructors for the concrete classes.
-        Player[] builders = { new Human(), new SmartComputer(), new AverageComputer() };
-
+        Player[] builders = { new Human(), new SmartComputer(), new BelowAverageComputer() };
 
         // Array of the interface Player.
         Player[] players = new Player[size] ;
 
         int playAgain ; 
-        int playCounter = 1;
 
         do
         {
-            System.out.println("\n Game Number: " + playCounter++) ;
-
             // For n player that wants to play.
             for (int i = 0 ; i < size ; i++) 
             {

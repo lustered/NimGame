@@ -1,16 +1,16 @@
 import java.util.Random ;
 
-class AverageComputer implements Player
+class BelowAverageComputer implements Player
 {
     private String playerName ;
     private final Random rnd = new Random() ;
 
-    public AverageComputer()
+    public BelowAverageComputer()
     {
         playerName = "AverageComputer";
     }
 
-    public AverageComputer(String playerName)
+    public BelowAverageComputer(String playerName)
     {
         this.playerName = playerName ;
     }

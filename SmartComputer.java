@@ -1,23 +1,46 @@
 
+/** 
+ * Models a smart computer implementing {@link Player}.
+ */
 class SmartComputer implements Player
 {
+    // Var to set the user/player name.
     private String playerName ;
 
+    /**
+     * Constructor for {@link SmartComputer}.
+     */
     public SmartComputer()
     {
         playerName = "SmartComputer" ;
     }
 
+    /**
+     * Constructor for {@link SmartComputer}.
+     *
+     * @param playerName to create a player with a name.
+     */
     public SmartComputer(String playerName)
     {
         this.playerName = playerName ;
     }
 
+    /**
+     * Set the player's name.
+     *
+     * @param playerName {@link String} set the player's name.
+     */
     public void setPlayerName(String playerName)
     {
         this.playerName = playerName ;
     }
 
+    /**
+     * Method to handle user input and check proper range.
+     *
+     * @param marbles amount of marbles left in the pile class.
+     * @return amount of marbles to remove.
+     */
     public int move(int marbles)
     {
         // If the value at half the range is is odd, we can use it.
@@ -43,6 +66,13 @@ class SmartComputer implements Player
         return 1;
     }
 
+    /**
+     * Method to handle user input and check proper range.
+     *
+     * @param marbles amount of marbles left in the pile class.
+     * @param minVal {@link Boolean} get the minimum amount to remove instead.
+     * @return amount of marbles to remove.
+     */
     public int move(int marbles, boolean minVal)
     {
         // If the value at half the range is is odd, we can use it.
@@ -68,6 +98,11 @@ class SmartComputer implements Player
         return 1;
     }
 
+    /**
+     * Get the player's name.
+     * 
+     * @return Player's name.
+     */
     public String getPlayerName()
     {
         return playerName;
