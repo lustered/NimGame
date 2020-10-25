@@ -39,9 +39,10 @@ class BelowAverageComputer implements Player
      *
      * @param playerName {@link String} set the player's name.
      */
-    public void setPlayerName(String playerName)
+    public BelowAverageComputer setPlayerName(String playerName)
     {
         this.playerName = playerName;
+        return this;
     }
 
     /**

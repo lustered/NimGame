@@ -32,9 +32,10 @@ public class Human implements Player
      *
      * @param playerName {@link String} set the player's name.
      */
-    public void setPlayerName(String playerName) 
+    public Human setPlayerName(String playerName) 
     {
         this.playerName = playerName;
+        return this;
     }
 
 

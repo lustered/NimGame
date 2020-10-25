@@ -45,13 +45,13 @@ public class Pile
     public void removeMarbles(int amount) throws ArithmeticException
     {
         // Check if amount to substract from the pile is legal.
-        if(isLegal(amount))
+        if(amount > 0 && amount <= (marbles / 2))
         {
            lastPlay = amount ;
            marbles -= amount; 
         }
         else
-           // Let's say it's an ArithmeticException since the program didn't count very well. 
+            // Let's say it's an ArithmeticException since the program didn't count very well. 
             throw new ArithmeticException("To dev. The amount of marbles returned by the 'move' method is not legal: " + amount );
     }
 
@@ -61,14 +61,6 @@ public class Pile
      */
     public boolean hasMarbles()
     {
-        return marbles > 1 ;
-    }
-
-    /*
-     * Helper method used to check boundaries.
-     */
-    private boolean isLegal(int amount)
-    {
-        return (amount > 0 && amount <= (marbles / 2));
+        return marbles > 0 ;
     }
 }

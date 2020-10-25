@@ -36,12 +36,8 @@ public class Nim
         {
             for (int i = 0 ; i < players.length ; i++) 
             {
-               // Call the move method for the concrete classes
-               // polymorphically.
-               int playerAmount = players[i].move(pile.getMarbles()) ;
-
                // Remove the amount of marbles.
-               pile.removeMarbles(playerAmount) ;
+               pile.removeMarbles(players[i].move(pile.getMarbles())) ;
 
                // Tell the user the amount of marbles removed, by who, and left amount.
                System.out.format("\n\n\t%s removed: %2s marbles!\n\tNow there are %2s left.\n", 

@@ -14,8 +14,9 @@ public class TestNim
         Object[] menu = { "No", "Yes" } ;
         Object[] availablePlayers = { "Human", "Smart Computer", "Dumber Computer" } ;
         
+        String namePlace = "";
         // Constructors for the concrete classes.
-        Player[] builders = { new Human(), new SmartComputer(), new BelowAverageComputer() };
+        Player[] builders = { new Human(namePlace), new SmartComputer(), new BelowAverageComputer() };
 
         // Array of the interface Player.
         Player[] players = new Player[size] ;
@@ -24,7 +25,7 @@ public class TestNim
 
         do
         {
-            // For n player that wants to play.
+            // For n player that want to play.
             for (int i = 0 ; i < size ; i++) 
             {
                 // Ask the user the players he wants to play.
@@ -33,12 +34,10 @@ public class TestNim
                         JOptionPane.WARNING_MESSAGE, null, availablePlayers, availablePlayers[0]) ;
 
                 // Get the name of the player.
-                String userName = (JOptionPane.showInputDialog("Insert the name for player #: " + (i+1)));
+                String userName = JOptionPane.showInputDialog("Insert the name for player #: " + (i+1)) ;
                 
-                // Add the addecuate constructor for the chosen player.
-                players[i] = builders[userOption];
-                // Setting the name of the player.
-                players[i].setPlayerName(userName);
+                // Add the addecuate constructor for the chosen player and set name.
+                players[i] = builders[userOption].setPlayerName(userName);
 
             }
 
