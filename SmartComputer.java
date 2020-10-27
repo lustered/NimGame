@@ -44,26 +44,35 @@ class SmartComputer implements Player
      */
     public int move(int marbles)
     {
-        // If the value at half the range is is odd, we can use it.
-        if((marbles - (marbles / 2 )) % 2 != 0)
-            return marbles / 2;
-        else
-        {
-            // variable to backtrack-check.
-            int min = (marbles / 2) + 1 ;
+        // TODO: explanation
+                    
+        // General Concept:
+        // Power of 2s : 1,2,4,8,16,32,64,128 ...
 
-            // Iterate to get the greatest possible value 
-            for ( ; min < marbles ; min++) 
-                // If the end result is odd, return the appropiate amount.
-                if((marbles - (marbles - min)) % 2 != 0)
-                    return (marbles - min) ;
-            
-        }
+        int min = (marbles / 2) + 1 ;
         
-        // This patches the edge case of 3 remaining marbles.
-        // Eg: 3/2 = 1 (only possible play)
-        //     3-1 = 2 - NOT ODD
-        // So we return 1. 
+        // Check if the amount of marbles at exactly half is
+        // a power of 2 - 1. 
+        // This can be an edge case the for loop misses.
+        if(Integer.bitCount(marbles - (marbles - min)) == 1)
+            return marbles / 2;
+
+        for( ; min < marbles ; min++)
+        {
+            // This is the amount of marbles that would be left after
+            // substracting the amount we return.
+            int val = marbles - (marbles - min) ;
+
+            // Check if the bitwise twos complement returns 1.
+            // n = 2 | 4^n = 16
+            // 3
+            // Eg. Integer.bitCount(16) == 1 -> True
+            if(Integer.bitCount(val) == 1)
+                // return the value - 1  
+                return (marbles - (min - 1)) ;
+
+        }
+
         return 1;
     }
 

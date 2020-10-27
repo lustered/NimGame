@@ -40,7 +40,7 @@ public class Nim
                pile.removeMarbles(players[i].move(pile.getMarbles())) ;
 
                // Tell the user the amount of marbles removed, by who, and left amount.
-               System.out.format("\n\n\t%s removed: %2s marbles!\n\tNow there are %2s left.\n", 
+               System.out.format("\n\n\t%s removed %2s marbles!\n\tNow there are %2s left.\n", 
                        players[i].getPlayerName() , pile.getLastPlay() , pile.getMarbles()) ;
 
                // If there is one marble left, set the winner.
