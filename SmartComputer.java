@@ -44,15 +44,30 @@ class SmartComputer implements Player
      */
     public int move(int marbles)
     {
-        // TODO: explanation
+        // Binary approach.
                     
         // General Concept:
         // Power of 2s : 1,2,4,8,16,32,64,128 ...
+        // As the power of 2s is the base of binary numbers, they have the form of
+        // 10...000.
+        //  Eg. 2 -> 10
+        //      4 -> 100
+        //      8 -> 1000
+        //     16 -> 10000
+        // 
+        //
+        // .The method bitCount from the Integer class allows us to count 1 bits.
+        // . Otherwise, we could manually check for two's complement: 
+        //          https://en.wikipedia.org/wiki/Two%27s_complement
 
+        // Note: min is NOT half of the pile. It is the "delimeter". 
+        // Perhaps an odd approach.
+        // Eg. 85(marbles) / 2 = 42
+        //     85(marbles) - (42+1)(min) = 42 
         int min = (marbles / 2) + 1 ;
-        
-        // Check if the amount of marbles at exactly half is
-        // a power of 2 - 1. 
+
+        // Check if the amount of marbles that will be left at exactly half is
+        // a power of 2. 
         // This can be an edge case the for loop misses.
         if(Integer.bitCount(marbles - (marbles - min)) == 1)
             return marbles / 2;
@@ -63,9 +78,7 @@ class SmartComputer implements Player
             // substracting the amount we return.
             int val = marbles - (marbles - min) ;
 
-            // Check if the bitwise twos complement returns 1.
-            // n = 2 | 4^n = 16
-            // 3
+            // Check if the would-be result is a power of 2. 
             // Eg. Integer.bitCount(16) == 1 -> True
             if(Integer.bitCount(val) == 1)
                 // return the value - 1  
